@@ -1,7 +1,6 @@
 name: flutter_admin_scaffold
 description: A scaffold class with a sidebar.
 version: 0.0.1
-author: Tetsuro Susa <susa@keyber.jp>
 homepage: https://github.com/keyber-inc/flutter_admin_scaffold
 
 environment:
