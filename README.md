@@ -2,6 +2,8 @@
 
 This package is a scaffold class with a sidebar.
 
+<img width=720 src="example.gif">
+
 ## Usage
 
 ```dart
