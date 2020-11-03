@@ -2,7 +2,7 @@
 
 A scaffold class with a sidebar.
 
-<img width=720 src="example.gif">
+<img width=100% alt="example.gif" src="https://user-images.githubusercontent.com/13707135/98013864-4044fa00-1e3e-11eb-928a-d20a80216a17.gif">
 
 ## Usage
 
