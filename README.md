@@ -8,8 +8,6 @@ A scaffold class with a sidebar that works with a appBar.
 
 ```dart
 import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
-import 'package:flutter_admin_scaffold/menu_item_data.dart';
-import 'package:flutter_admin_scaffold/sidebar.dart';
 ```
 
 You can add a sidebar as shown below. See `example` for details.
