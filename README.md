@@ -1,18 +1,77 @@
 # flutter_admin_scaffold
 
-A new flutter plugin project.
+This package is a scaffold class with a sidebar.
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+```dart
+import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
+import 'package:flutter_admin_scaffold/menu_item_data.dart';
+import 'package:flutter_admin_scaffold/sidebar.dart';
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can add a sidebar as shown below. See `example` for details.
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+```dart
+class DashboardPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AdminScaffold(
+      appBar: AppBar(
+        title: const Text('Sample'),
+      ),
+      sidebar: Sidebar(
+        itemDatas: const [
+          MenuItemData(
+            title: 'Dashboard',
+            route: '/',
+            icon: Icons.dashboard,
+          ),
+          MenuItemData(
+            title: 'Top Level',
+            icon: Icons.file_copy,
+            children: [
+              MenuItemData(
+                title: 'Second Level Item 1',
+                route: '/secondLevelItem1',
+              ),
+              MenuItemData(
+                title: 'Second Level Item 2',
+                route: '/secondLevelItem2',
+              ),
+              MenuItemData(
+                title: 'Third Level',
+                children: [
+                  MenuItemData(
+                    title: 'Third Level Item 1',
+                    route: '/thirdLevelItem1',
+                  ),
+                  MenuItemData(
+                    title: 'Third Level Item 2',
+                    route: '/thirdLevelItem2',
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+        selectedRoute: route,
+        onSelected: (itemData) {
+          Navigator.of(context).pushNamed(itemData.route);
+        },
+      ),
+      body: Container(
+        alignment: Alignment.topLeft,
+        padding: const EdgeInsets.all(10),
+        child: Text(
+          'Dashboard',
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 36,
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
