@@ -1,8 +1,8 @@
 name: flutter_admin_scaffold
-description: A new flutter plugin project.
+description: A scaffold class with a sidebar.
 version: 0.0.1
-author:
-homepage:
+author: Tetsuro Susa <susa@keyber.jp>
+homepage: https://github.com/keyber-inc/flutter_admin_scaffold
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

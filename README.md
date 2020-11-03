@@ -1,6 +1,6 @@
 # flutter_admin_scaffold
 
-This package is a scaffold class with a sidebar.
+A scaffold class with a sidebar.
 
 <img width=720 src="example.gif">
 
