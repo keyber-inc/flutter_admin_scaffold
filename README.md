@@ -1,6 +1,6 @@
 # flutter_admin_scaffold
 
-A scaffold class with a sidebar.
+A scaffold class with a sidebar that works with a appBar.
 
 <img width=100% alt="example.gif" src="https://user-images.githubusercontent.com/13707135/98013864-4044fa00-1e3e-11eb-928a-d20a80216a17.gif">
 
