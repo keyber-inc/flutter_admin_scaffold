@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_admin_scaffold_example/my_scaffold.dart';
+import 'package:flutter_admin_scaffold_example/main.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
