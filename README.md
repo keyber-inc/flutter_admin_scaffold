@@ -55,7 +55,7 @@ class DashboardPage extends StatelessWidget {
             ],
           ),
         ],
-        selectedRoute: route,
+        selectedRoute: '/',
         onSelected: (itemData) {
           Navigator.of(context).pushNamed(itemData.route);
         },
