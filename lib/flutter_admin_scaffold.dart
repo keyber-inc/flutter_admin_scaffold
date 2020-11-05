@@ -9,11 +9,13 @@ class AdminScaffold extends StatefulWidget {
     this.appBar,
     this.sidebar,
     @required this.body,
+    this.backgroundColor,
   }) : super(key: key);
 
   final AppBar appBar;
   final Sidebar sidebar;
   final Widget body;
+  final Color backgroundColor;
 
   @override
   _AdminScaffoldState createState() => _AdminScaffoldState();
@@ -128,6 +130,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
       child: widget.body,
     );
     return Scaffold(
+      backgroundColor: widget.backgroundColor,
       appBar: _buildAppBar(widget.appBar, widget.sidebar),
       body: AnimatedBuilder(
         animation: _animation,
