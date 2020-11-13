@@ -13,7 +13,13 @@ class Sidebar extends StatefulWidget {
     @required this.selectedRoute,
     this.onSelected,
     this.width = 240.0,
+    this.iconColor,
+    this.activeIconColor,
     this.textStyle = const TextStyle(
+      color: Color(0xFF337ab7),
+      fontSize: 12,
+    ),
+    this.activeTextStyle = const TextStyle(
       color: Color(0xFF337ab7),
       fontSize: 12,
     ),
@@ -26,7 +32,10 @@ class Sidebar extends StatefulWidget {
   final String selectedRoute;
   final void Function(MenuItemData itemData) onSelected;
   final double width;
+  final Color iconColor;
+  final Color activeIconColor;
   final TextStyle textStyle;
+  final TextStyle activeTextStyle;
   final Color backgroundColor;
   final Color activeBackgroundColor;
   final Color borderColor;
@@ -68,7 +77,10 @@ class _SidebarState extends State<Sidebar> with SingleTickerProviderStateMixin {
                     onSelected: widget.onSelected,
                     selectedRoute: widget.selectedRoute,
                     depth: 0,
+                    iconColor: widget.iconColor,
+                    activeIconColor: widget.activeIconColor,
                     textStyle: widget.textStyle,
+                    activeTextStyle: widget.activeTextStyle,
                     backgroundColor: widget.backgroundColor,
                     activeBackgroundColor: widget.activeBackgroundColor,
                     borderColor: widget.borderColor,

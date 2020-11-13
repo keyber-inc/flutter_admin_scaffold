@@ -9,7 +9,10 @@ class SidebarItem extends StatelessWidget {
     this.onSelected,
     this.selectedRoute,
     this.depth = 0,
+    this.iconColor,
+    this.activeIconColor,
     @required this.textStyle,
+    this.activeTextStyle,
     @required this.backgroundColor,
     @required this.activeBackgroundColor,
     @required this.borderColor,
@@ -20,7 +23,10 @@ class SidebarItem extends StatelessWidget {
   final void Function(MenuItemData itemData) onSelected;
   final String selectedRoute;
   final int depth;
+  final Color iconColor;
+  final Color activeIconColor;
   final TextStyle textStyle;
+  final TextStyle activeTextStyle;
   final Color backgroundColor;
   final Color activeBackgroundColor;
   final Color borderColor;
@@ -44,12 +50,14 @@ class SidebarItem extends StatelessWidget {
   }
 
   Widget _buildTiles(BuildContext context, MenuItemData itemData) {
+    bool selected = _isSelected(selectedRoute, [itemData]);
+
     if (itemData.children.isEmpty) {
       return ListTile(
         contentPadding: _getTilePadding(depth),
-        leading: _buildIcon(itemData.icon),
-        title: _buildTitle(itemData.title),
-        selected: _isSelected(selectedRoute, [itemData]),
+        leading: _buildIcon(itemData.icon, selected),
+        title: _buildTitle(itemData.title, selected),
+        selected: selected,
         tileColor: backgroundColor,
         selectedTileColor: activeBackgroundColor,
         onTap: () {
@@ -68,7 +76,10 @@ class SidebarItem extends StatelessWidget {
         onSelected: onSelected,
         selectedRoute: selectedRoute,
         depth: depth + 1,
+        iconColor: iconColor,
+        activeIconColor: activeIconColor,
         textStyle: textStyle,
+        activeTextStyle: activeTextStyle,
         backgroundColor: backgroundColor,
         activeBackgroundColor: activeBackgroundColor,
         borderColor: borderColor,
@@ -81,7 +92,7 @@ class SidebarItem extends StatelessWidget {
         tilePadding: _getTilePadding(depth),
         leading: _buildIcon(itemData.icon),
         title: _buildTitle(itemData.title),
-        initiallyExpanded: _isSelected(selectedRoute, [itemData]),
+        initiallyExpanded: selected,
         children: childrenTiles,
       ),
     );
@@ -99,19 +110,26 @@ class SidebarItem extends StatelessWidget {
     return false;
   }
 
-  Widget _buildIcon(IconData icon) {
+  Widget _buildIcon(IconData icon, [bool selected = false]) {
     return icon != null
         ? Icon(
             icon,
             size: 22,
+            color: selected
+                ? activeIconColor != null
+                    ? activeIconColor
+                    : activeTextStyle.color
+                : iconColor != null
+                    ? iconColor
+                    : textStyle.color,
           )
         : SizedBox();
   }
 
-  Widget _buildTitle(String title) {
+  Widget _buildTitle(String title, [bool selected = false]) {
     return Text(
       title,
-      style: textStyle,
+      style: selected ? activeTextStyle : textStyle,
     );
   }
 

@@ -126,6 +126,7 @@ class MyScaffold extends StatelessWidget {
             MenuItemData(
               title: 'Third Level Item 2',
               route: '/thirdLevelItem2',
+              icon: Icons.image,
             ),
           ],
         ),
@@ -190,6 +191,19 @@ class MyScaffold extends StatelessWidget {
         ],
       ),
       sidebar: Sidebar(
+        backgroundColor: Color(0xFFEEEEEE),
+        activeBackgroundColor: Colors.black26,
+        borderColor: Color(0xFFE7E7E7),
+        iconColor: Colors.black87,
+        activeIconColor: Colors.blue,
+        textStyle: TextStyle(
+          color: Color(0xFF337ab7),
+          fontSize: 13,
+        ),
+        activeTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 13,
+        ),
         itemDatas: _sidebarItemDatas,
         selectedRoute: route,
         onSelected: (itemData) {
