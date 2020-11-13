@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'flutter_admin_scaffold.dart';
+import 'menu_item_data.dart';
 
 class SidebarItem extends StatelessWidget {
   const SidebarItem({
