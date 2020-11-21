@@ -26,6 +26,8 @@ class SideBar extends StatefulWidget {
     this.backgroundColor = const Color(0xFFEEEEEE),
     this.activeBackgroundColor = const Color(0xFFE7E7E7),
     this.borderColor = const Color(0xFFE7E7E7),
+    this.header,
+    this.footer,
   }) : super(key: key);
 
   final List<MenuItem> items;
@@ -39,6 +41,8 @@ class SideBar extends StatefulWidget {
   final Color backgroundColor;
   final Color activeBackgroundColor;
   final Color borderColor;
+  final Widget header;
+  final Widget footer;
 
   @override
   _SideBarState createState() => _SideBarState();
@@ -66,6 +70,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
       width: _sideBarWidth,
       child: Column(
         children: [
+          if (widget.header != null) widget.header,
           Expanded(
             child: Material(
               color: widget.backgroundColor,
@@ -90,6 +95,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
+          if (widget.footer != null) widget.footer,
         ],
       ),
     );

@@ -13,7 +13,7 @@ import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
 You can add a side bar as shown below. See `example` for details.
 
 ```dart
-class Sample extends StatelessWidget {
+class SamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
@@ -60,6 +60,32 @@ class Sample extends StatelessWidget {
         onSelected: (item) {
           Navigator.of(context).pushNamed(item.route);
         },
+        header: Container(
+          height: 50,
+          width: double.infinity,
+          color: Colors.black26,
+          child: Center(
+            child: Text(
+              'header',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        footer: Container(
+          height: 50,
+          width: double.infinity,
+          color: Colors.black26,
+          child: Center(
+            child: Text(
+              'footer',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
       ),
       body: Container(
         alignment: Alignment.topLeft,

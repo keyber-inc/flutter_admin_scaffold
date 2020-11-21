@@ -213,6 +213,32 @@ class MyScaffold extends StatelessWidget {
             Navigator.of(context).pushNamed(item.route);
           }
         },
+        header: Container(
+          height: 50,
+          width: double.infinity,
+          color: Colors.black26,
+          child: Center(
+            child: Text(
+              'header',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        footer: Container(
+          height: 50,
+          width: double.infinity,
+          color: Colors.black26,
+          child: Center(
+            child: Text(
+              'footer',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
       ),
       body: body,
     );
