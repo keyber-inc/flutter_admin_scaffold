@@ -1,6 +1,6 @@
 # flutter_admin_scaffold
 
-A scaffold class with a side bar that works with a appBar.
+A scaffold class with a sideBar that works with a appBar.
 
 <img width=100% alt="example.gif" src="https://user-images.githubusercontent.com/13707135/98013864-4044fa00-1e3e-11eb-928a-d20a80216a17.gif">
 
@@ -10,7 +10,7 @@ A scaffold class with a side bar that works with a appBar.
 import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
 ```
 
-You can add a side bar as shown below. See `example` for details.
+You can add a sideBar as shown below. See `example` for details.
 
 ```dart
 class SamplePage extends StatelessWidget {
