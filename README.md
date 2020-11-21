@@ -1,6 +1,6 @@
 # flutter_admin_scaffold
 
-A scaffold class with a sidebar that works with a appBar.
+A scaffold class with a side bar that works with a appBar.
 
 <img width=100% alt="example.gif" src="https://user-images.githubusercontent.com/13707135/98013864-4044fa00-1e3e-11eb-928a-d20a80216a17.gif">
 
@@ -10,10 +10,10 @@ A scaffold class with a sidebar that works with a appBar.
 import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
 ```
 
-You can add a sidebar as shown below. See `example` for details.
+You can add a side bar as shown below. See `example` for details.
 
 ```dart
-class DashboardPage extends StatelessWidget {
+class Sample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
@@ -21,33 +21,33 @@ class DashboardPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample'),
       ),
-      sidebar: Sidebar(
-        itemDatas: const [
-          MenuItemData(
+      sideBar: SideBar(
+        items: const [
+          MenuItem(
             title: 'Dashboard',
             route: '/',
             icon: Icons.dashboard,
           ),
-          MenuItemData(
+          MenuItem(
             title: 'Top Level',
             icon: Icons.file_copy,
             children: [
-              MenuItemData(
+              MenuItem(
                 title: 'Second Level Item 1',
                 route: '/secondLevelItem1',
               ),
-              MenuItemData(
+              MenuItem(
                 title: 'Second Level Item 2',
                 route: '/secondLevelItem2',
               ),
-              MenuItemData(
+              MenuItem(
                 title: 'Third Level',
                 children: [
-                  MenuItemData(
+                  MenuItem(
                     title: 'Third Level Item 1',
                     route: '/thirdLevelItem1',
                   ),
-                  MenuItemData(
+                  MenuItem(
                     title: 'Third Level Item 2',
                     route: '/thirdLevelItem2',
                   ),
@@ -57,8 +57,8 @@ class DashboardPage extends StatelessWidget {
           ),
         ],
         selectedRoute: '/',
-        onSelected: (itemData) {
-          Navigator.of(context).pushNamed(itemData.route);
+        onSelected: (item) {
+          Navigator.of(context).pushNamed(item.route);
         },
       ),
       body: Container(

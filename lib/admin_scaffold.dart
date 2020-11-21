@@ -199,12 +199,12 @@ class _AdminScaffoldState extends State<AdminScaffold>
     );
   }
 
-  AppBar _buildAppBar(AppBar appBar, SideBar sidebar) {
+  AppBar _buildAppBar(AppBar appBar, SideBar sideBar) {
     if (appBar == null) {
       return null;
     }
 
-    final leading = sidebar != null
+    final leading = sideBar != null
         ? IconButton(
             icon: const Icon(Icons.menu),
             onPressed: _toggleSidebar,

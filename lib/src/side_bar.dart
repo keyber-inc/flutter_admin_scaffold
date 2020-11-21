@@ -45,25 +45,25 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
-  double _sidebarWidth;
+  double _sideBarWidth;
 
   @override
   void initState() {
     super.initState();
-    _sidebarWidth = widget.width;
+    _sideBarWidth = widget.width;
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final mediaQuery = MediaQuery.of(context);
-    _sidebarWidth = min(mediaQuery.size.width * 0.7, widget.width);
+    _sideBarWidth = min(mediaQuery.size.width * 0.7, widget.width);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: _sidebarWidth,
+      width: _sideBarWidth,
       child: Column(
         children: [
           Expanded(

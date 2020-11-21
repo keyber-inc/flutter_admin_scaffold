@@ -208,7 +208,7 @@ class MyScaffold extends StatelessWidget {
         selectedRoute: route,
         onSelected: (item) {
           print(
-              'sidebar: onTap(): title = ${item.title}, route = ${item.route}');
+              'sideBar: onTap(): title = ${item.title}, route = ${item.route}');
           if (item.route != null && item.route != route) {
             Navigator.of(context).pushNamed(item.route);
           }
