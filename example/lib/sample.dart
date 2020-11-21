@@ -9,33 +9,33 @@ class Sample extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample'),
       ),
-      sidebar: Sidebar(
-        itemDatas: const [
-          MenuItemData(
+      sideBar: SideBar(
+        items: const [
+          MenuItem(
             title: 'Dashboard',
             route: '/',
             icon: Icons.dashboard,
           ),
-          MenuItemData(
+          MenuItem(
             title: 'Top Level',
             icon: Icons.file_copy,
             children: [
-              MenuItemData(
+              MenuItem(
                 title: 'Second Level Item 1',
                 route: '/secondLevelItem1',
               ),
-              MenuItemData(
+              MenuItem(
                 title: 'Second Level Item 2',
                 route: '/secondLevelItem2',
               ),
-              MenuItemData(
+              MenuItem(
                 title: 'Third Level',
                 children: [
-                  MenuItemData(
+                  MenuItem(
                     title: 'Third Level Item 1',
                     route: '/thirdLevelItem1',
                   ),
-                  MenuItemData(
+                  MenuItem(
                     title: 'Third Level Item 2',
                     route: '/thirdLevelItem2',
                   ),
@@ -45,8 +45,8 @@ class Sample extends StatelessWidget {
           ),
         ],
         selectedRoute: '/',
-        onSelected: (itemData) {
-          Navigator.of(context).pushNamed(itemData.route);
+        onSelected: (item) {
+          Navigator.of(context).pushNamed(item.route);
         },
       ),
       body: Container(

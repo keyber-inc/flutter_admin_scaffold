@@ -3,13 +3,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'menu_item_data.dart';
-import 'sidebar_item.dart';
+import 'menu_item.dart';
+import 'side_bar_item.dart';
 
-class Sidebar extends StatefulWidget {
-  const Sidebar({
+class SideBar extends StatefulWidget {
+  const SideBar({
     Key key,
-    @required this.itemDatas,
+    @required this.items,
     @required this.selectedRoute,
     this.onSelected,
     this.width = 240.0,
@@ -28,9 +28,9 @@ class Sidebar extends StatefulWidget {
     this.borderColor = const Color(0xFFE7E7E7),
   }) : super(key: key);
 
-  final List<MenuItemData> itemDatas;
+  final List<MenuItem> items;
   final String selectedRoute;
-  final void Function(MenuItemData itemData) onSelected;
+  final void Function(MenuItem item) onSelected;
   final double width;
   final Color iconColor;
   final Color activeIconColor;
@@ -41,10 +41,10 @@ class Sidebar extends StatefulWidget {
   final Color borderColor;
 
   @override
-  _SidebarState createState() => _SidebarState();
+  _SideBarState createState() => _SideBarState();
 }
 
-class _SidebarState extends State<Sidebar> with SingleTickerProviderStateMixin {
+class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
   double _sidebarWidth;
 
   @override
@@ -71,8 +71,8 @@ class _SidebarState extends State<Sidebar> with SingleTickerProviderStateMixin {
               color: widget.backgroundColor,
               child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {
-                  return SidebarItem(
-                    itemDatas: widget.itemDatas,
+                  return SideBarItem(
+                    items: widget.items,
                     index: index,
                     onSelected: widget.onSelected,
                     selectedRoute: widget.selectedRoute,
@@ -86,7 +86,7 @@ class _SidebarState extends State<Sidebar> with SingleTickerProviderStateMixin {
                     borderColor: widget.borderColor,
                   );
                 },
-                itemCount: widget.itemDatas.length,
+                itemCount: widget.items.length,
               ),
             ),
           ),

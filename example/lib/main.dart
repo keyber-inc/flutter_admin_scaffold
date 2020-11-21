@@ -98,32 +98,32 @@ class MyScaffold extends StatelessWidget {
   final Widget body;
   final String route;
 
-  final List<MenuItemData> _sidebarItemDatas = const [
-    MenuItemData(
+  final List<MenuItem> _sideBarItems = const [
+    MenuItem(
       title: 'Dashboard',
       route: '/',
       icon: Icons.dashboard,
     ),
-    MenuItemData(
+    MenuItem(
       title: 'Top Level',
       icon: Icons.file_copy,
       children: [
-        MenuItemData(
+        MenuItem(
           title: 'Second Level Item 1',
           route: '/secondLevelItem1',
         ),
-        MenuItemData(
+        MenuItem(
           title: 'Second Level Item 2',
           route: '/secondLevelItem2',
         ),
-        MenuItemData(
+        MenuItem(
           title: 'Third Level',
           children: [
-            MenuItemData(
+            MenuItem(
               title: 'Third Level Item 1',
               route: '/thirdLevelItem1',
             ),
-            MenuItemData(
+            MenuItem(
               title: 'Third Level Item 2',
               route: '/thirdLevelItem2',
               icon: Icons.image,
@@ -134,18 +134,18 @@ class MyScaffold extends StatelessWidget {
     ),
   ];
 
-  final List<MenuItemData> _adminMenuItemDatas = const [
-    MenuItemData(
+  final List<MenuItem> _adminMenuItems = const [
+    MenuItem(
       title: 'User Profile',
       icon: Icons.account_circle,
       route: '/',
     ),
-    MenuItemData(
+    MenuItem(
       title: 'Settings',
       icon: Icons.settings,
       route: '/',
     ),
-    MenuItemData(
+    MenuItem(
       title: 'Logout',
       icon: Icons.logout,
       route: '/',
@@ -162,8 +162,8 @@ class MyScaffold extends StatelessWidget {
           PopupMenuButton(
             child: const Icon(Icons.account_circle),
             itemBuilder: (context) {
-              return _adminMenuItemDatas.map((MenuItemData item) {
-                return PopupMenuItem<MenuItemData>(
+              return _adminMenuItems.map((MenuItem item) {
+                return PopupMenuItem<MenuItem>(
                   value: item,
                   child: Row(
                     children: [
@@ -182,15 +182,15 @@ class MyScaffold extends StatelessWidget {
                 );
               }).toList();
             },
-            onSelected: (itemData) {
+            onSelected: (item) {
               print(
-                  'actions: onSelected(): title = ${itemData.title}, route = ${itemData.route}');
-              Navigator.of(context).pushNamed(itemData.route);
+                  'actions: onSelected(): title = ${item.title}, route = ${item.route}');
+              Navigator.of(context).pushNamed(item.route);
             },
           ),
         ],
       ),
-      sidebar: Sidebar(
+      sideBar: SideBar(
         backgroundColor: Color(0xFFEEEEEE),
         activeBackgroundColor: Colors.black26,
         borderColor: Color(0xFFE7E7E7),
@@ -204,13 +204,13 @@ class MyScaffold extends StatelessWidget {
           color: Colors.white,
           fontSize: 13,
         ),
-        itemDatas: _sidebarItemDatas,
+        items: _sideBarItems,
         selectedRoute: route,
-        onSelected: (itemData) {
+        onSelected: (item) {
           print(
-              'sidebar: onTap(): title = ${itemData.title}, route = ${itemData.route}');
-          if (itemData.route != null && itemData.route != route) {
-            Navigator.of(context).pushNamed(itemData.route);
+              'sidebar: onTap(): title = ${item.title}, route = ${item.route}');
+          if (item.route != null && item.route != route) {
+            Navigator.of(context).pushNamed(item.route);
           }
         },
       ),

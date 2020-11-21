@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MenuItemData {
-  const MenuItemData({
+class MenuItem {
+  const MenuItem({
     @required this.title,
     this.route,
     this.icon,
@@ -11,5 +11,5 @@ class MenuItemData {
   final String title;
   final String route;
   final IconData icon;
-  final List<MenuItemData> children;
+  final List<MenuItem> children;
 }

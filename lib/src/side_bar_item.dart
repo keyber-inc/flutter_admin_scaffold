@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'menu_item_data.dart';
+import 'menu_item.dart';
 
-class SidebarItem extends StatelessWidget {
-  const SidebarItem({
-    @required this.itemDatas,
+class SideBarItem extends StatelessWidget {
+  const SideBarItem({
+    @required this.items,
     @required this.index,
     this.onSelected,
     this.selectedRoute,
@@ -18,9 +18,9 @@ class SidebarItem extends StatelessWidget {
     @required this.borderColor,
   });
 
-  final List<MenuItemData> itemDatas;
+  final List<MenuItem> items;
   final int index;
-  final void Function(MenuItemData itemData) onSelected;
+  final void Function(MenuItem item) onSelected;
   final String selectedRoute;
   final int depth;
   final Color iconColor;
@@ -30,12 +30,12 @@ class SidebarItem extends StatelessWidget {
   final Color backgroundColor;
   final Color activeBackgroundColor;
   final Color borderColor;
-  bool get isLast => index == itemDatas.length - 1;
+  bool get isLast => index == items.length - 1;
 
   @override
   Widget build(BuildContext context) {
     if (depth > 0 && isLast) {
-      return _buildTiles(context, itemDatas[index]);
+      return _buildTiles(context, items[index]);
     }
     return Container(
       decoration: BoxDecoration(
@@ -45,33 +45,33 @@ class SidebarItem extends StatelessWidget {
           ),
         ),
       ),
-      child: _buildTiles(context, itemDatas[index]),
+      child: _buildTiles(context, items[index]),
     );
   }
 
-  Widget _buildTiles(BuildContext context, MenuItemData itemData) {
-    bool selected = _isSelected(selectedRoute, [itemData]);
+  Widget _buildTiles(BuildContext context, MenuItem item) {
+    bool selected = _isSelected(selectedRoute, [item]);
 
-    if (itemData.children.isEmpty) {
+    if (item.children.isEmpty) {
       return ListTile(
         contentPadding: _getTilePadding(depth),
-        leading: _buildIcon(itemData.icon, selected),
-        title: _buildTitle(itemData.title, selected),
+        leading: _buildIcon(item.icon, selected),
+        title: _buildTitle(item.title, selected),
         selected: selected,
         tileColor: backgroundColor,
         selectedTileColor: activeBackgroundColor,
         onTap: () {
           if (onSelected != null) {
-            onSelected(itemData);
+            onSelected(item);
           }
         },
       );
     }
 
     int index = 0;
-    final childrenTiles = itemData.children.map((item) {
-      return SidebarItem(
-        itemDatas: itemData.children,
+    final childrenTiles = item.children.map((child) {
+      return SideBarItem(
+        items: item.children,
         index: index++,
         onSelected: onSelected,
         selectedRoute: selectedRoute,
@@ -90,21 +90,21 @@ class SidebarItem extends StatelessWidget {
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
         tilePadding: _getTilePadding(depth),
-        leading: _buildIcon(itemData.icon),
-        title: _buildTitle(itemData.title),
+        leading: _buildIcon(item.icon),
+        title: _buildTitle(item.title),
         initiallyExpanded: selected,
         children: childrenTiles,
       ),
     );
   }
 
-  bool _isSelected(String route, List<MenuItemData> itemDatas) {
-    for (final itemData in itemDatas) {
-      if (itemData.route == route) {
+  bool _isSelected(String route, List<MenuItem> items) {
+    for (final item in items) {
+      if (item.route == route) {
         return true;
       }
-      if (itemData.children.isNotEmpty) {
-        return _isSelected(route, itemData.children);
+      if (item.children.isNotEmpty) {
+        return _isSelected(route, item.children);
       }
     }
     return false;

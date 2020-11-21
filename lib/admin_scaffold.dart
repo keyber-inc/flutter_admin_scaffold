@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'src/sidebar.dart';
+import 'src/side_bar.dart';
 
-export 'src/menu_item_data.dart';
-export 'src/sidebar.dart';
+export 'src/menu_item.dart';
+export 'src/side_bar.dart';
 
 class AdminScaffold extends StatefulWidget {
   AdminScaffold({
     Key key,
     this.appBar,
-    this.sidebar,
+    this.sideBar,
     @required this.body,
     this.backgroundColor,
   }) : super(key: key);
 
   final AppBar appBar;
-  final Sidebar sidebar;
+  final SideBar sideBar;
   final Widget body;
   final Color backgroundColor;
 
@@ -81,7 +81,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
 
   void _onDragUpdate(DragUpdateDetails details) {
     if (_canDragged) {
-      final delta = details.primaryDelta / widget.sidebar.width;
+      final delta = details.primaryDelta / widget.sideBar.width;
       _animationController.value += delta;
     }
   }
@@ -99,7 +99,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
 
     if (details.velocity.pixelsPerSecond.dx.abs() >= minFlingVelocity) {
       final visualVelocity =
-          details.velocity.pixelsPerSecond.dx / widget.sidebar.width;
+          details.velocity.pixelsPerSecond.dx / widget.sideBar.width;
 
       await _animationController.fling(velocity: visualVelocity);
       if (_animationController.isCompleted) {
@@ -133,10 +133,10 @@ class _AdminScaffoldState extends State<AdminScaffold>
     );
     return Scaffold(
       backgroundColor: widget.backgroundColor,
-      appBar: _buildAppBar(widget.appBar, widget.sidebar),
+      appBar: _buildAppBar(widget.appBar, widget.sideBar),
       body: AnimatedBuilder(
         animation: _animation,
-        builder: (_, __) => widget.sidebar == null
+        builder: (_, __) => widget.sideBar == null
             ? Row(
                 children: [
                   Expanded(
@@ -168,22 +168,22 @@ class _AdminScaffoldState extends State<AdminScaffold>
                         ),
                       ClipRect(
                         child: SizedOverflowBox(
-                          size: Size(widget.sidebar.width * _animation.value,
+                          size: Size(widget.sideBar.width * _animation.value,
                               double.infinity),
-                          child: widget.sidebar,
+                          child: widget.sideBar,
                         ),
                       ),
                     ],
                   )
                 : Row(
                     children: [
-                      widget.sidebar != null
+                      widget.sideBar != null
                           ? ClipRect(
                               child: SizedOverflowBox(
                                 size: Size(
-                                    widget.sidebar.width * _animation.value,
+                                    widget.sideBar.width * _animation.value,
                                     double.infinity),
-                                child: widget.sidebar,
+                                child: widget.sideBar,
                               ),
                             )
                           : SizedBox(),
@@ -199,7 +199,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
     );
   }
 
-  AppBar _buildAppBar(AppBar appBar, Sidebar sidebar) {
+  AppBar _buildAppBar(AppBar appBar, SideBar sidebar) {
     if (appBar == null) {
       return null;
     }
