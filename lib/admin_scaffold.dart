@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'sidebar.dart';
+import 'src/sidebar.dart';
+
+export 'src/menu_item_data.dart';
+export 'src/sidebar.dart';
 
 class AdminScaffold extends StatefulWidget {
   AdminScaffold({

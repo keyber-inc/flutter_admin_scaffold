@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
+import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:flutter_admin_scaffold_example/sample_pages/dashboard_page.dart';
 import 'package:flutter_admin_scaffold_example/sample_pages/second_level_item_1_page.dart';
 import 'package:flutter_admin_scaffold_example/sample_pages/second_level_item_2_page.dart';
