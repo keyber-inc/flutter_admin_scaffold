@@ -87,14 +87,16 @@ class SamplePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        alignment: Alignment.topLeft,
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          'Dashboard',
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 36,
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.topLeft,
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            'Dashboard',
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 36,
+            ),
           ),
         ),
       ),
