@@ -128,9 +128,6 @@ class _AdminScaffoldState extends State<AdminScaffold>
 
   @override
   Widget build(BuildContext context) {
-    final body = SingleChildScrollView(
-      child: widget.body,
-    );
     return Scaffold(
       backgroundColor: widget.backgroundColor,
       appBar: _buildAppBar(widget.appBar, widget.sideBar),
@@ -142,7 +139,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
                   Expanded(
                     child: Align(
                       alignment: Alignment.topCenter,
-                      child: body,
+                      child: widget.body,
                     ),
                   ),
                 ],
@@ -155,7 +152,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
                         onHorizontalDragUpdate: _onDragUpdate,
                         onHorizontalDragEnd: _onDragEnd,
                       ),
-                      body,
+                      widget.body,
                       if (_animation.value > 0)
                         Container(
                           color: Colors.black
@@ -190,7 +187,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
                       Expanded(
                         child: Align(
                           alignment: Alignment.topCenter,
-                          child: body,
+                          child: widget.body,
                         ),
                       ),
                     ],

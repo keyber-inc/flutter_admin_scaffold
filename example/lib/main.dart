@@ -240,7 +240,9 @@ class MyScaffold extends StatelessWidget {
           ),
         ),
       ),
-      body: body,
+      body: SingleChildScrollView(
+        child: body,
+      ),
     );
   }
 }
