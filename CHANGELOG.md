@@ -1,3 +1,7 @@
+## 0.0.5 - December 22, 2020
+
+- SingleChildScrollView of body is abolished
+
 ## 0.0.4 - November 21, 2020
 
 - Rename package name
