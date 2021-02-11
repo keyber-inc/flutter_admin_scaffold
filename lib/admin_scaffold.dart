@@ -5,6 +5,9 @@ import 'src/side_bar.dart';
 export 'src/menu_item.dart';
 export 'src/side_bar.dart';
 
+
+/// フォーク確認
+
 class AdminScaffold extends StatefulWidget {
   AdminScaffold({
     Key key,
