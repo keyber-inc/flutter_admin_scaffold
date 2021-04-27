@@ -70,8 +70,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Widget _getPageWidget(RouteSettings settings) {
-    final uri = Uri.parse(settings.name);
+  Widget? _getPageWidget(RouteSettings settings) {
+    if (settings.name == null) {
+      return null;
+    }
+    final uri = Uri.parse(settings.name!);
     switch (uri.path) {
       case '/':
         return DashboardPage();
@@ -90,9 +93,9 @@ class _MyAppState extends State<MyApp> {
 
 class MyScaffold extends StatelessWidget {
   const MyScaffold({
-    Key key,
-    @required this.route,
-    @required this.body,
+    Key? key,
+    required this.route,
+    required this.body,
   }) : super(key: key);
 
   final Widget body;
@@ -159,7 +162,7 @@ class MyScaffold extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample'),
         actions: [
-          PopupMenuButton(
+          PopupMenuButton<MenuItem>(
             child: const Icon(Icons.account_circle),
             itemBuilder: (context) {
               return _adminMenuItems.map((MenuItem item) {
@@ -185,7 +188,7 @@ class MyScaffold extends StatelessWidget {
             onSelected: (item) {
               print(
                   'actions: onSelected(): title = ${item.title}, route = ${item.route}');
-              Navigator.of(context).pushNamed(item.route);
+              Navigator.of(context).pushNamed(item.route!);
             },
           ),
         ],
@@ -210,13 +213,13 @@ class MyScaffold extends StatelessWidget {
           print(
               'sideBar: onTap(): title = ${item.title}, route = ${item.route}');
           if (item.route != null && item.route != route) {
-            Navigator.of(context).pushNamed(item.route);
+            Navigator.of(context).pushNamed(item.route!);
           }
         },
         header: Container(
           height: 50,
           width: double.infinity,
-          color: Colors.black26,
+          color: Color(0xff444444),
           child: Center(
             child: Text(
               'header',
@@ -229,7 +232,7 @@ class MyScaffold extends StatelessWidget {
         footer: Container(
           height: 50,
           width: double.infinity,
-          color: Colors.black26,
+          color: Color(0xff444444),
           child: Center(
             child: Text(
               'footer',

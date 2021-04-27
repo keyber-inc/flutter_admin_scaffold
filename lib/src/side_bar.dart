@@ -8,9 +8,9 @@ import 'side_bar_item.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({
-    Key key,
-    @required this.items,
-    @required this.selectedRoute,
+    Key? key,
+    required this.items,
+    required this.selectedRoute,
     this.onSelected,
     this.width = 240.0,
     this.iconColor,
@@ -32,24 +32,24 @@ class SideBar extends StatefulWidget {
 
   final List<MenuItem> items;
   final String selectedRoute;
-  final void Function(MenuItem item) onSelected;
+  final void Function(MenuItem item)? onSelected;
   final double width;
-  final Color iconColor;
-  final Color activeIconColor;
+  final Color? iconColor;
+  final Color? activeIconColor;
   final TextStyle textStyle;
   final TextStyle activeTextStyle;
   final Color backgroundColor;
   final Color activeBackgroundColor;
   final Color borderColor;
-  final Widget header;
-  final Widget footer;
+  final Widget? header;
+  final Widget? footer;
 
   @override
   _SideBarState createState() => _SideBarState();
 }
 
 class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
-  double _sideBarWidth;
+  late double _sideBarWidth;
 
   @override
   void initState() {
@@ -70,7 +70,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
       width: _sideBarWidth,
       child: Column(
         children: [
-          if (widget.header != null) widget.header,
+          if (widget.header != null) widget.header!,
           Expanded(
             child: Material(
               color: widget.backgroundColor,
@@ -95,7 +95,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
-          if (widget.footer != null) widget.footer,
+          if (widget.footer != null) widget.footer!,
         ],
       ),
     );

@@ -46,12 +46,14 @@ class SamplePage extends StatelessWidget {
         ],
         selectedRoute: '/',
         onSelected: (item) {
-          Navigator.of(context).pushNamed(item.route);
+          if (item.route != null) {
+            Navigator.of(context).pushNamed(item.route!);
+          }
         },
         header: Container(
           height: 50,
           width: double.infinity,
-          color: Colors.black26,
+          color: Color(0xff444444),
           child: Center(
             child: Text(
               'header',
@@ -64,7 +66,7 @@ class SamplePage extends StatelessWidget {
         footer: Container(
           height: 50,
           width: double.infinity,
-          color: Colors.black26,
+          color: Color(0xff444444),
           child: Center(
             child: Text(
               'footer',

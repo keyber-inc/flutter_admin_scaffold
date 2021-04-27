@@ -4,27 +4,27 @@ import 'menu_item.dart';
 
 class SideBarItem extends StatelessWidget {
   const SideBarItem({
-    @required this.items,
-    @required this.index,
+    required this.items,
+    required this.index,
     this.onSelected,
-    this.selectedRoute,
+    required this.selectedRoute,
     this.depth = 0,
     this.iconColor,
     this.activeIconColor,
-    @required this.textStyle,
-    this.activeTextStyle,
-    @required this.backgroundColor,
-    @required this.activeBackgroundColor,
-    @required this.borderColor,
+    required this.textStyle,
+    required this.activeTextStyle,
+    required this.backgroundColor,
+    required this.activeBackgroundColor,
+    required this.borderColor,
   });
 
   final List<MenuItem> items;
   final int index;
-  final void Function(MenuItem item) onSelected;
+  final void Function(MenuItem item)? onSelected;
   final String selectedRoute;
   final int depth;
-  final Color iconColor;
-  final Color activeIconColor;
+  final Color? iconColor;
+  final Color? activeIconColor;
   final TextStyle textStyle;
   final TextStyle activeTextStyle;
   final Color backgroundColor;
@@ -62,7 +62,7 @@ class SideBarItem extends StatelessWidget {
         selectedTileColor: activeBackgroundColor,
         onTap: () {
           if (onSelected != null) {
-            onSelected(item);
+            onSelected!(item);
           }
         },
       );
@@ -110,7 +110,7 @@ class SideBarItem extends StatelessWidget {
     return false;
   }
 
-  Widget _buildIcon(IconData icon, [bool selected = false]) {
+  Widget _buildIcon(IconData? icon, [bool selected = false]) {
     return icon != null
         ? Icon(
             icon,
