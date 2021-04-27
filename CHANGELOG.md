@@ -1,3 +1,7 @@
+## 1.0.0 - April 27, 2021
+
+- support null-safety
+
 ## 0.0.5 - December 22, 2020
 
 - SingleChildScrollView of body is abolished

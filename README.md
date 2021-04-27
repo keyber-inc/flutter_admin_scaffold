@@ -2,17 +2,20 @@
 
 A scaffold class with a sideBar that works with a appBar.
 
-<img width=100% alt="example.gif" src="https://user-images.githubusercontent.com/13707135/98013864-4044fa00-1e3e-11eb-928a-d20a80216a17.gif">
+<img width=100% alt="example.gif" src="https://user-images.githubusercontent.com/13707135/116196008-e9293d80-a76d-11eb-9841-4c738c81bfa7.gif">
 
 ## Usage
 
 ```dart
-import 'package:flutter_admin_scaffold/flutter_admin_scaffold.dart';
+import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 ```
 
 You can add a sideBar as shown below. See `example` for details.
 
 ```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_admin_scaffold/admin_scaffold.dart';
+
 class SamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -58,12 +61,14 @@ class SamplePage extends StatelessWidget {
         ],
         selectedRoute: '/',
         onSelected: (item) {
-          Navigator.of(context).pushNamed(item.route);
+          if (item.route != null) {
+            Navigator.of(context).pushNamed(item.route!);
+          }
         },
         header: Container(
           height: 50,
           width: double.infinity,
-          color: Colors.black26,
+          color: Color(0xff444444),
           child: Center(
             child: Text(
               'header',
@@ -76,7 +81,7 @@ class SamplePage extends StatelessWidget {
         footer: Container(
           height: 50,
           width: double.infinity,
-          color: Colors.black26,
+          color: Color(0xff444444),
           child: Center(
             child: Text(
               'footer',
