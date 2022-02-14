@@ -1,3 +1,7 @@
+## 1.0.1 - February 14, 2022
+
+- Add scrollController parameter at SideBar class
+
 ## 1.0.0 - April 27, 2021
 
 - support null-safety
