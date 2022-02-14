@@ -26,6 +26,7 @@ class SideBar extends StatefulWidget {
     this.backgroundColor = const Color(0xFFEEEEEE),
     this.activeBackgroundColor = const Color(0xFFE7E7E7),
     this.borderColor = const Color(0xFFE7E7E7),
+    this.scrollController,
     this.header,
     this.footer,
   }) : super(key: key);
@@ -41,6 +42,7 @@ class SideBar extends StatefulWidget {
   final Color backgroundColor;
   final Color activeBackgroundColor;
   final Color borderColor;
+  final ScrollController? scrollController;
   final Widget? header;
   final Widget? footer;
 
@@ -92,6 +94,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                   );
                 },
                 itemCount: widget.items.length,
+                controller: widget.scrollController ?? ScrollController(),
               ),
             ),
           ),
