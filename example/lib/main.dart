@@ -175,7 +175,7 @@ class MyScaffold extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
                           item.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14,
                           ),
                         ),
@@ -194,16 +194,16 @@ class MyScaffold extends StatelessWidget {
         ],
       ),
       sideBar: SideBar(
-        backgroundColor: Color(0xFFEEEEEE),
+        backgroundColor: const Color(0xFFEEEEEE),
         activeBackgroundColor: Colors.black26,
-        borderColor: Color(0xFFE7E7E7),
+        borderColor: const Color(0xFFE7E7E7),
         iconColor: Colors.black87,
         activeIconColor: Colors.blue,
-        textStyle: TextStyle(
+        textStyle: const TextStyle(
           color: Color(0xFF337ab7),
           fontSize: 13,
         ),
-        activeTextStyle: TextStyle(
+        activeTextStyle: const TextStyle(
           color: Colors.white,
           fontSize: 13,
         ),
@@ -219,8 +219,8 @@ class MyScaffold extends StatelessWidget {
         header: Container(
           height: 50,
           width: double.infinity,
-          color: Color(0xff444444),
-          child: Center(
+          color: const Color(0xff444444),
+          child: const Center(
             child: Text(
               'header',
               style: TextStyle(
@@ -232,8 +232,8 @@ class MyScaffold extends StatelessWidget {
         footer: Container(
           height: 50,
           width: double.infinity,
-          color: Color(0xff444444),
-          child: Center(
+          color: const Color(0xff444444),
+          child: const Center(
             child: Text(
               'footer',
               style: TextStyle(
