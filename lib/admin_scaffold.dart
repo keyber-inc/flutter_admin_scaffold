@@ -218,7 +218,6 @@ class _AdminScaffoldState extends State<AdminScaffold>
             onPressed: _toggleSidebar,
           )
         : appBar.leading;
-    final centerTitle = false;
     final shadowColor = Colors.transparent;
 
     return AppBar(
@@ -238,7 +237,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
       actionsIconTheme: appBar.actionsIconTheme,
       textTheme: appBar.textTheme,
       primary: appBar.primary,
-      centerTitle: centerTitle,
+      centerTitle: appBar.centerTitle ?? false,
       excludeHeaderSemantics: appBar.excludeHeaderSemantics,
       titleSpacing: appBar.titleSpacing,
       toolbarOpacity: appBar.toolbarOpacity,
