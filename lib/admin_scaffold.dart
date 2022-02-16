@@ -6,7 +6,7 @@ export 'src/menu_item.dart';
 export 'src/side_bar.dart';
 
 class AdminScaffold extends StatefulWidget {
-  AdminScaffold({
+  const AdminScaffold({
     Key? key,
     this.appBar,
     this.sideBar,
@@ -27,15 +27,18 @@ class _AdminScaffoldState extends State<AdminScaffold>
     with SingleTickerProviderStateMixin {
   static const _mobileThreshold = 768.0;
 
+  late AppBar? _appBar;
   late AnimationController _animationController;
   late Animation _animation;
   bool _isMobile = false;
   bool _isOpenSidebar = false;
   bool _canDragged = false;
+  double _screenWidth = 0;
 
   @override
   void initState() {
     super.initState();
+    _appBar = _buildAppBar(widget.appBar, widget.sideBar);
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 300),
@@ -50,10 +53,15 @@ class _AdminScaffoldState extends State<AdminScaffold>
   void didChangeDependencies() {
     super.didChangeDependencies();
     final mediaQuery = MediaQuery.of(context);
+    if (_screenWidth == mediaQuery.size.width) {
+      return;
+    }
+
     setState(() {
       _isMobile = mediaQuery.size.width < _mobileThreshold;
       _isOpenSidebar = !_isMobile;
       _animationController.value = _isMobile ? 0 : 1;
+      _screenWidth = mediaQuery.size.width;
     });
   }
 
@@ -131,7 +139,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.backgroundColor,
-      appBar: _buildAppBar(widget.appBar, widget.sideBar),
+      appBar: _appBar,
       body: AnimatedBuilder(
         animation: _animation,
         builder: (_, __) => widget.sideBar == null
