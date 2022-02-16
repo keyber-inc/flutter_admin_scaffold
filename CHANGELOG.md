@@ -1,3 +1,8 @@
+## 1.1.0 - February 16, 2022
+
+- Performance improvements
+- Support any parameters at AppBar class
+
 ## 1.0.1 - February 14, 2022
 
 - Add scrollController parameter at SideBar class
