@@ -232,6 +232,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
       shadowColor: shadowColor,
       shape: appBar.shape,
       backgroundColor: appBar.backgroundColor,
+      foregroundColor: appBar.foregroundColor,
       brightness: appBar.brightness,
       iconTheme: appBar.iconTheme,
       actionsIconTheme: appBar.actionsIconTheme,
@@ -244,6 +245,10 @@ class _AdminScaffoldState extends State<AdminScaffold>
       bottomOpacity: appBar.bottomOpacity,
       toolbarHeight: appBar.toolbarHeight,
       leadingWidth: appBar.leadingWidth,
+      backwardsCompatibility: appBar.backwardsCompatibility,
+      toolbarTextStyle: appBar.toolbarTextStyle,
+      titleTextStyle: appBar.titleTextStyle,
+      systemOverlayStyle: appBar.systemOverlayStyle,
     );
   }
 }
