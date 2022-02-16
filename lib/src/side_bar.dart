@@ -52,11 +52,43 @@ class SideBar extends StatefulWidget {
 
 class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
   late double _sideBarWidth;
+  late Widget _child;
 
   @override
   void initState() {
     super.initState();
     _sideBarWidth = widget.width;
+    _child = Column(
+      children: [
+        if (widget.header != null) widget.header!,
+        Expanded(
+          child: Material(
+            color: widget.backgroundColor,
+            child: ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return SideBarItem(
+                  items: widget.items,
+                  index: index,
+                  onSelected: widget.onSelected,
+                  selectedRoute: widget.selectedRoute,
+                  depth: 0,
+                  iconColor: widget.iconColor,
+                  activeIconColor: widget.activeIconColor,
+                  textStyle: widget.textStyle,
+                  activeTextStyle: widget.activeTextStyle,
+                  backgroundColor: widget.backgroundColor,
+                  activeBackgroundColor: widget.activeBackgroundColor,
+                  borderColor: widget.borderColor,
+                );
+              },
+              itemCount: widget.items.length,
+              controller: widget.scrollController ?? ScrollController(),
+            ),
+          ),
+        ),
+        if (widget.footer != null) widget.footer!,
+      ],
+    );
   }
 
   @override
@@ -68,39 +100,10 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    print("build()");
     return Container(
       width: _sideBarWidth,
-      child: Column(
-        children: [
-          if (widget.header != null) widget.header!,
-          Expanded(
-            child: Material(
-              color: widget.backgroundColor,
-              child: ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return SideBarItem(
-                    items: widget.items,
-                    index: index,
-                    onSelected: widget.onSelected,
-                    selectedRoute: widget.selectedRoute,
-                    depth: 0,
-                    iconColor: widget.iconColor,
-                    activeIconColor: widget.activeIconColor,
-                    textStyle: widget.textStyle,
-                    activeTextStyle: widget.activeTextStyle,
-                    backgroundColor: widget.backgroundColor,
-                    activeBackgroundColor: widget.activeBackgroundColor,
-                    borderColor: widget.borderColor,
-                  );
-                },
-                itemCount: widget.items.length,
-                controller: widget.scrollController ?? ScrollController(),
-              ),
-            ),
-          ),
-          if (widget.footer != null) widget.footer!,
-        ],
-      ),
+      child: _child,
     );
   }
 }
