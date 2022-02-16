@@ -68,8 +68,8 @@ class SamplePage extends StatelessWidget {
         header: Container(
           height: 50,
           width: double.infinity,
-          color: Color(0xff444444),
-          child: Center(
+          color: const Color(0xff444444),
+          child: const Center(
             child: Text(
               'header',
               style: TextStyle(
@@ -81,8 +81,8 @@ class SamplePage extends StatelessWidget {
         footer: Container(
           height: 50,
           width: double.infinity,
-          color: Color(0xff444444),
-          child: Center(
+          color: const Color(0xff444444),
+          child: const Center(
             child: Text(
               'footer',
               style: TextStyle(
@@ -96,7 +96,7 @@ class SamplePage extends StatelessWidget {
         child: Container(
           alignment: Alignment.topLeft,
           padding: const EdgeInsets.all(10),
-          child: Text(
+          child: const Text(
             'Dashboard',
             style: TextStyle(
               fontWeight: FontWeight.w700,
