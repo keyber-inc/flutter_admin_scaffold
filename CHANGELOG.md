@@ -1,3 +1,7 @@
+## 1.1.1 - May 12, 2022
+
+- BREAKING: `MenuItem` are removed. You can now instead use `AdminMenuItem`.
+
 ## 1.1.0 - February 16, 2022
 
 - Performance improvements
