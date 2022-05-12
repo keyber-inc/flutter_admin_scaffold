@@ -101,32 +101,32 @@ class MyScaffold extends StatelessWidget {
   final Widget body;
   final String route;
 
-  final List<MenuItem> _sideBarItems = const [
-    MenuItem(
+  final List<AdminMenuItem> _sideBarItems = const [
+    AdminMenuItem(
       title: 'Dashboard',
       route: '/',
       icon: Icons.dashboard,
     ),
-    MenuItem(
+    AdminMenuItem(
       title: 'Top Level',
       icon: Icons.file_copy,
       children: [
-        MenuItem(
+        AdminMenuItem(
           title: 'Second Level Item 1',
           route: '/secondLevelItem1',
         ),
-        MenuItem(
+        AdminMenuItem(
           title: 'Second Level Item 2',
           route: '/secondLevelItem2',
         ),
-        MenuItem(
+        AdminMenuItem(
           title: 'Third Level',
           children: [
-            MenuItem(
+            AdminMenuItem(
               title: 'Third Level Item 1',
               route: '/thirdLevelItem1',
             ),
-            MenuItem(
+            AdminMenuItem(
               title: 'Third Level Item 2',
               route: '/thirdLevelItem2',
               icon: Icons.image,
@@ -137,18 +137,18 @@ class MyScaffold extends StatelessWidget {
     ),
   ];
 
-  final List<MenuItem> _adminMenuItems = const [
-    MenuItem(
+  final List<AdminMenuItem> _adminMenuItems = const [
+    AdminMenuItem(
       title: 'User Profile',
       icon: Icons.account_circle,
       route: '/',
     ),
-    MenuItem(
+    AdminMenuItem(
       title: 'Settings',
       icon: Icons.settings,
       route: '/',
     ),
-    MenuItem(
+    AdminMenuItem(
       title: 'Logout',
       icon: Icons.logout,
       route: '/',
@@ -162,11 +162,11 @@ class MyScaffold extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample'),
         actions: [
-          PopupMenuButton<MenuItem>(
+          PopupMenuButton<AdminMenuItem>(
             child: const Icon(Icons.account_circle),
             itemBuilder: (context) {
-              return _adminMenuItems.map((MenuItem item) {
-                return PopupMenuItem<MenuItem>(
+              return _adminMenuItems.map((AdminMenuItem item) {
+                return PopupMenuItem<AdminMenuItem>(
                   value: item,
                   child: Row(
                     children: [

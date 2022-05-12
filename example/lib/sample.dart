@@ -11,31 +11,31 @@ class SamplePage extends StatelessWidget {
       ),
       sideBar: SideBar(
         items: const [
-          MenuItem(
+          AdminMenuItem(
             title: 'Dashboard',
             route: '/',
             icon: Icons.dashboard,
           ),
-          MenuItem(
+          AdminMenuItem(
             title: 'Top Level',
             icon: Icons.file_copy,
             children: [
-              MenuItem(
+              AdminMenuItem(
                 title: 'Second Level Item 1',
                 route: '/secondLevelItem1',
               ),
-              MenuItem(
+              AdminMenuItem(
                 title: 'Second Level Item 2',
                 route: '/secondLevelItem2',
               ),
-              MenuItem(
+              AdminMenuItem(
                 title: 'Third Level',
                 children: [
-                  MenuItem(
+                  AdminMenuItem(
                     title: 'Third Level Item 1',
                     route: '/thirdLevelItem1',
                   ),
-                  MenuItem(
+                  AdminMenuItem(
                     title: 'Third Level Item 2',
                     route: '/thirdLevelItem2',
                   ),

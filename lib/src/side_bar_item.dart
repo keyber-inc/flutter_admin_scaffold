@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'menu_item.dart';
+import 'admin_menu_item.dart';
 
 class SideBarItem extends StatelessWidget {
   const SideBarItem({
@@ -18,9 +18,9 @@ class SideBarItem extends StatelessWidget {
     required this.borderColor,
   });
 
-  final List<MenuItem> items;
+  final List<AdminMenuItem> items;
   final int index;
-  final void Function(MenuItem item)? onSelected;
+  final void Function(AdminMenuItem item)? onSelected;
   final String selectedRoute;
   final int depth;
   final Color? iconColor;
@@ -49,7 +49,7 @@ class SideBarItem extends StatelessWidget {
     );
   }
 
-  Widget _buildTiles(BuildContext context, MenuItem item) {
+  Widget _buildTiles(BuildContext context, AdminMenuItem item) {
     bool selected = _isSelected(selectedRoute, [item]);
 
     if (item.children.isEmpty) {
@@ -98,7 +98,7 @@ class SideBarItem extends StatelessWidget {
     );
   }
 
-  bool _isSelected(String route, List<MenuItem> items) {
+  bool _isSelected(String route, List<AdminMenuItem> items) {
     for (final item in items) {
       if (item.route == route) {
         return true;

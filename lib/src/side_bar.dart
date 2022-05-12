@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'menu_item.dart';
+import 'admin_menu_item.dart';
 import 'side_bar_item.dart';
 
 class SideBar extends StatefulWidget {
@@ -31,9 +31,9 @@ class SideBar extends StatefulWidget {
     this.footer,
   }) : super(key: key);
 
-  final List<MenuItem> items;
+  final List<AdminMenuItem> items;
   final String selectedRoute;
-  final void Function(MenuItem item)? onSelected;
+  final void Function(AdminMenuItem item)? onSelected;
   final double width;
   final Color? iconColor;
   final Color? activeIconColor;

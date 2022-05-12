@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'src/side_bar.dart';
 
-export 'src/menu_item.dart';
+export 'src/admin_menu_item.dart';
 export 'src/side_bar.dart';
 
 class AdminScaffold extends StatefulWidget {
