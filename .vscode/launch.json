@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "web-html",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "program": "example/lib/main.dart",
+      "args": [
+        "--web-renderer",
+        "html",
+        "--web-hostname",
+        "localhost",
+        "--web-port",
+        "5000",
+      ]
+    },
+    {
+      "name": "web-canvaskit",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "program": "example/lib/main.dart",
+      "args": [
+        "--web-renderer",
+        "canvaskit",
+        "--web-hostname",
+        "localhost",
+        "--web-port",
+        "5000",
+      ]
+    },
+  ]
+}
