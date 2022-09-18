@@ -1,0 +1,42 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Download dart sdk
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - name: Setup credentials
+        run: |
+          mkdir -p ~/.pub-cache
+          cat <<EOF > ~/.pub-cache/credentials.json
+          {
+            "accessToken":"${{ secrets.PUB_CREDENTIALS_ACCESS_TOKEN }}",
+            "refreshToken":"${{ secrets.PUB_CREDENTIALS_REFRESH_TOKEN }}",
+            "idToken":"${{ secrets.PUB_CREDENTIALS_ID_TOKEN }}",
+            "tokenEndpoint":"https://accounts.google.com/o/oauth2/token",
+            "scopes": ["openid","https://www.googleapis.com/auth/userinfo.email"],
+            "expiration": 1663545376882
+          }
+          EOF
+      - name: Publish to pub.dev
+        run: dart pub publish -f
+      - name: Create release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
