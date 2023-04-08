@@ -1,3 +1,10 @@
+## 1.2.0 - April 9, 2023
+
+- Change minimum Dart version to '2.18.0'
+- Change minimum Flutter version to '3.3.0'
+- Added support for AppBar properties (`scrolledUnderElevation`, `notificationPredicate` and `surfaceTintColor` )
+- Removed support for deprecated AppBar properties ( `brightness`, `textTheme` and `backwardsCompatibility` )
+
 ## 1.1.2 - September 19, 2022
 
 - Fixed lint

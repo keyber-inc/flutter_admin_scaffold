@@ -1,6 +1,6 @@
 name: flutter_admin_scaffold
 description: A scaffold class with a sideBar that works with a appBar.
-version: 1.1.2
+version: 1.2.0
 homepage: https://github.com/keyber-inc/flutter_admin_scaffold
 
 environment:
