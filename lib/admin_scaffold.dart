@@ -218,7 +218,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
             onPressed: _toggleSidebar,
           )
         : appBar.leading;
-    final shadowColor = Colors.transparent;
+    final shadowColor = appBar.shadowColor ?? Colors.transparent;
 
     return AppBar(
       leading: leading,
