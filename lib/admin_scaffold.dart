@@ -12,12 +12,14 @@ class AdminScaffold extends StatefulWidget {
     this.sideBar,
     required this.body,
     this.backgroundColor,
+    this.mobileThreshold = 768.0,
   }) : super(key: key);
 
   final AppBar? appBar;
   final SideBar? sideBar;
   final Widget body;
   final Color? backgroundColor;
+  final double mobileThreshold;
 
   @override
   _AdminScaffoldState createState() => _AdminScaffoldState();
@@ -25,8 +27,6 @@ class AdminScaffold extends StatefulWidget {
 
 class _AdminScaffoldState extends State<AdminScaffold>
     with SingleTickerProviderStateMixin {
-  static const _mobileThreshold = 768.0;
-
   late AppBar? _appBar;
   late AnimationController _animationController;
   late Animation _animation;
@@ -58,7 +58,7 @@ class _AdminScaffoldState extends State<AdminScaffold>
     }
 
     setState(() {
-      _isMobile = mediaQuery.size.width < _mobileThreshold;
+      _isMobile = mediaQuery.size.width < widget.mobileThreshold;
       _isOpenSidebar = !_isMobile;
       _animationController.value = _isMobile ? 0 : 1;
       _screenWidth = mediaQuery.size.width;
