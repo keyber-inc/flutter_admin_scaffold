@@ -1,3 +1,8 @@
+## 1.3.0 - May 12, 2024
+
+- fix: Reflect AppBar.shadowColor #20
+- feat: Add mobileThreshold parameter #21
+
 ## 1.2.0 - April 9, 2023
 
 - Change minimum Dart version to '2.18.0'
