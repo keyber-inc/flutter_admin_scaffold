@@ -1,3 +1,7 @@
+## 1.4.0 - Dec 21, 2024
+
+- feat: Add leadingIcon parameter #24
+
 ## 1.3.0 - May 12, 2024
 
 - fix: Reflect AppBar.shadowColor #20
