@@ -6,6 +6,7 @@ class SamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdminScaffold(
       backgroundColor: Colors.white,
+      leadingIcon: Icon(Icons.menu),
       appBar: AppBar(
         title: const Text('Sample'),
       ),
